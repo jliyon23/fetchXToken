@@ -3,12 +3,12 @@ from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
-
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/bypass-recaptcha', methods=['GET'])
+@app.route('/bypass-recaptcha', methods=['POST'])
 def bypass_recaptcha():
-    anchorr = 'https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LengiYqAAAAALVHsgDfec84rJcae3I2iZpU7hWt&co=aHR0cHM6Ly9rdHUuZWR1LmluOjQ0Mw..&hl=en&v=hfUfsXWZFeg83qqxrK27GB8P&size=invisible&cb=3wd8nqj4d2fi'.strip()
+    data = request.json
+    anchorr = data.get('anchorr').strip()
 
     if not anchorr:
         return jsonify({'error': 'Anchor URL is required'}), 400
@@ -51,3 +51,5 @@ def bypass_recaptcha():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+    #anchorr = 'https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LengiYqAAAAALVHsgDfec84rJcae3I2iZpU7hWt&co=aHR0cHM6Ly9rdHUuZWR1LmluOjQ0Mw..&hl=en&v=hfUfsXWZFeg83qqxrK27GB8P&size=invisible&cb=3wd8nqj4d2fi'.strip()
