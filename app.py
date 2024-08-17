@@ -51,5 +51,3 @@ def bypass_recaptcha():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
-    #anchorr = 'https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LengiYqAAAAALVHsgDfec84rJcae3I2iZpU7hWt&co=aHR0cHM6Ly9rdHUuZWR1LmluOjQ0Mw..&hl=en&v=hfUfsXWZFeg83qqxrK27GB8P&size=invisible&cb=3wd8nqj4d2fi'.strip()
