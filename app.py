@@ -5,10 +5,9 @@ import requests
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/bypass-recaptcha', methods=['POST'])
+@app.route('/bypass-recaptcha', methods=['GET'])
 def bypass_recaptcha():
-    data = request.json
-    anchorr = data.get('anchorr').strip()
+    anchorr = "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6Ldb0ioqAAAAAJMH5vs0_SAPK72nf7hEE5R9wpmf&co=aHR0cHM6Ly9rdHUuZWR1LmluOjQ0Mw..&hl=en-GB&v=i7X0JrnYWy9Y_5EYdoFM79kV&size=invisible&cb=pgvngu12j9ny".strip()
 
     if not anchorr:
         return jsonify({'error': 'Anchor URL is required'}), 400
