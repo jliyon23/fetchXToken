@@ -7,7 +7,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/bypass-recaptcha', methods=['GET'])
 def bypass_recaptcha():
-    anchorr = "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LehQTMqAAAAAKcRUGEQAcNFU8gsYSkiadA8CNkV&co=aHR0cHM6Ly9rdHUuZWR1LmluOjQ0Mw..&hl=en-GB&v=WV-mUKO4xoWKy9M4ZzRyNrP_&size=invisible&cb=jbrmjrpxpyo5".strip()
+    anchorr = "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LehZIQqAAAAACChfpSzSDuzyPrsbX6Ky5CMFXz1&co=aHR0cHM6Ly9rdHUuZWR1LmluOjQ0Mw..&hl=en&v=pPK749sccDmVW_9DSeTMVvh2&size=invisible&cb=qoti2c13lsc4".strip()
 
     if not anchorr:
         return jsonify({'error': 'Anchor URL is required'}), 400
